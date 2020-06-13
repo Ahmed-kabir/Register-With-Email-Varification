@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login','LoginController@login');
+Route::get('/register','LoginController@register');
+Route::post('/setPasswordForsession','LoginController@savePasswordForSession');
+Route::post('/checkPasswordForsession','LoginController@checkRepetedPassword');
