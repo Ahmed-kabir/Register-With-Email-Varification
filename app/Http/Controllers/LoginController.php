@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Login;
 use Illuminate\Http\Request;
 use Session;
-
+use Mail;
+use App\Mail\SignupEmail;
 class LoginController extends Controller
 {
     /**
@@ -62,7 +63,34 @@ class LoginController extends Controller
             echo 'failed';
         }
     }
+    public function saveUserInfo(Request $request)
+    {
+        // return $request->all();
+        $random_value = (mt_rand(10,10000));
+        $data['fname'] = $request->input('fname');
+        $data['lname'] = $request->input('lname');
+        $data['email'] = $request->input('email');
+        $data['password'] = $request->input('password');
+        $data['confirm_password'] = $request->input('confirm_password');
 
+    }
+
+    public function basic_email() {
+        $data = [
+            'name' => "kabir",
+            'code' => "1234"
+        ];
+
+        Mail::to('kabir14235@gmail.com')->send(new SignupEmail($data));
+      // $data = array('name'=>"Virat Gandhi");
+   
+      // Mail::send(['text'=>'email_body'], $data, function($message) {
+      //    $message->to('kabir14235@gmail.com', 'Tutorials Point')->subject
+      //       ('Laravel Basic Testing Mail');
+      //    $message->from('kbrahmd94@gmail.com','Virat Gandhi');
+      // });
+      echo "Basic Email Sent. Check your inbox.";
+  }
     /**
      * Store a newly created resource in storage.
      *

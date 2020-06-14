@@ -21,8 +21,9 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
-                                               
+                                        <!-- <form> -->
+                                    {!!Form::open(['url'=>'/saveUserInfo','method'=>'POST'])!!} 
+                                    @csrf                                        
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group"><label class="small mb-1" for="inputFirstName">First Name</label><input class="form-control py-4" name="fname" id="inputFirstName" type="text" placeholder="Enter first name" /></div>
@@ -31,7 +32,7 @@
                                                     <div class="form-group"><label class="small mb-1" for="inputLastName">Last Name</label><input class="form-control py-4" name="lname" id="inputLastName" type="text" placeholder="Enter last name" /></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" /></div>
+                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" name="email" type="email" aria-describedby="emailHelp" placeholder="Enter email address" /></div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" name="password" id="inputPassword" type="password" onblur="pasForSession();" placeholder="Enter password" /></div>
@@ -41,7 +42,8 @@
                                                 </div>
                                             </div>
                                             <div class="form-group mt-4 mb-0"><button type="submit" class="btn btn-primary btn-block" id="register">Submit</button></div>
-                                        </form>
+                                            {!!Form::close()!!}
+                                        <!-- </form> -->
                                     </div>
                                     <div class="card-footer text-center">
                                         <div class="small"><a href="register.html">Have an account? Go to login</a></div>

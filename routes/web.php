@@ -20,3 +20,5 @@ Route::get('/login','LoginController@login');
 Route::get('/register','LoginController@register');
 Route::post('/setPasswordForsession','LoginController@savePasswordForSession');
 Route::post('/checkPasswordForsession','LoginController@checkRepetedPassword');
+Route::post('/saveUserInfo','LoginController@saveUserInfo');
+Route::get('/basic_email','LoginController@basic_email');
